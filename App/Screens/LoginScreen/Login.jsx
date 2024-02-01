@@ -9,7 +9,9 @@ export default function Login() {
         style={styles.loginImage}
       />
       <View style={styles.subContainer}>
-
+        <Text style={{fontSize: 27, color: Colors.WHITE}}>
+            Let's Find <Text style={{fontWeight: 'bold'}}>Professional Cleaning and Repair</Text> Service
+        </Text>
       </View>
     </View>
   )
@@ -28,6 +30,9 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: Colors.PRIMARY,
         height: '70%',
-        marginTop: '',
+        marginTop: '-20',
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
+        padding: 20
     }
 })

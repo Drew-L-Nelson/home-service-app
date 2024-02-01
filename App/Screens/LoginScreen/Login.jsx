@@ -9,8 +9,11 @@ export default function Login() {
         style={styles.loginImage}
       />
       <View style={styles.subContainer}>
-        <Text style={{fontSize: 27, color: Colors.WHITE}}>
+        <Text style={{fontSize: 27, color: Colors.WHITE, textAlign: 'center'}}>
             Let's Find <Text style={{fontWeight: 'bold'}}>Professional Cleaning and Repair</Text> Service
+        </Text>
+        <Text style={{fontSize: 17, color: Colors.WHITE, textAlign: 'center', marginTop: 20}}>
+            Best App to find services near you which deliver you a professional service
         </Text>
       </View>
     </View>

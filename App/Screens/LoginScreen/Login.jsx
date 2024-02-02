@@ -15,6 +15,13 @@ export default function Login() {
         <Text style={{fontSize: 17, color: Colors.WHITE, textAlign: 'center', marginTop: 20}}>
             Best App to find services near you which deliver you a professional service
         </Text>
+
+        <View style={styles.button}>
+            <Text style={{textAlign: 'center', fontSize: 17, color: Colors.PRIMARY}}>
+                Let's Get Started
+            </Text>
+        </View>
+
       </View>
     </View>
   )
@@ -37,5 +44,11 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 30,
         borderTopLeftRadius: 30,
         padding: 20
+    },
+    button: {
+        padding: 15,
+        backgroundColor: Colors.WHITE,
+        borderRadius: 99,
+        marginTop: 40
     }
 })

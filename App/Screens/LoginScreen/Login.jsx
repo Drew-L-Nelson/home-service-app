@@ -1,28 +1,31 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Colors from '../../Utils/Colors'
 
 export default function Login() {
   return (
     <View style={{alignItems: 'center'}}>
+
       <Image source={require('./../../../assets/images/login.png')} 
         style={styles.loginImage}
       />
+
       <View style={styles.subContainer}>
         <Text style={{fontSize: 27, color: Colors.WHITE, textAlign: 'center'}}>
             Let's Find <Text style={{fontWeight: 'bold'}}>Professional Cleaning and Repair</Text> Service
         </Text>
+
         <Text style={{fontSize: 17, color: Colors.WHITE, textAlign: 'center', marginTop: 20}}>
             Best App to find services near you which deliver you a professional service
         </Text>
 
-        <View style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={()=>console.log("Button Clicked")}>
             <Text style={{textAlign: 'center', fontSize: 17, color: Colors.PRIMARY}}>
                 Let's Get Started
             </Text>
-        </View>
-
+        </TouchableOpacity>
       </View>
+
     </View>
   )
 }

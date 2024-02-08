@@ -5,6 +5,7 @@ import HomeScreen from '../Screens/HomeScreen/HomeScreen';
 import BookingScreen from '../Screens/BookingScreen/BookingScreen';
 import ProfileScreen from '../Screens/ProfileScreen/ProfileScreen';
 import { Ionicons } from '@expo/vector-icons';
+import OrderingScreen from '../Screens/OrderingScreen/OrderingScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,6 +28,7 @@ export default function TabNavigation() {
             )
           }}
         />
+
         <Tab.Screen 
           name='booking' 
           component={BookingScreen} 
@@ -41,6 +43,22 @@ export default function TabNavigation() {
             )
           }}
         />
+
+        <Tab.Screen 
+          name='order' 
+          component={OrderingScreen} 
+          options={{
+            tabBarLabel: ({color})=>(
+              <Text style={{color: color, fontSize: 12, marginTop: -7 }}>
+                Order
+              </Text>
+            ),
+            tabBarIcon: ({color, size})=>(
+              <Ionicons name="fast-food-outline" size={size} color={color} />
+            )
+          }}
+        />
+
         <Tab.Screen 
           name='profile' 
           component={ProfileScreen} 
@@ -55,6 +73,7 @@ export default function TabNavigation() {
             )
           }}
         />
+        
     </Tab.Navigator>
   )
 }

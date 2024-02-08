@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../Screens/HomeScreen/HomeScreen';
 import BookingScreen from '../Screens/BookingScreen/BookingScreen';
 import ProfileScreen from '../Screens/ProfileScreen/ProfileScreen';
+import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,7 +13,20 @@ export default function TabNavigation() {
     <Tab.Navigator
       screenOptions={{ headerShown: false }}
     >
-        <Tab.Screen name='home' component={HomeScreen} />
+        <Tab.Screen 
+          name='home' 
+          component={HomeScreen} 
+          options={{
+            tabBarLabel: ({color})=>(
+              <Text style={{color: color, fontSize: 12, marginTop: -7 }}>
+                Home
+              </Text>
+            ),
+            tabBarIcon: ({color, size})=>(
+              <Ionicons name="home-outline" size={size} color={color} />
+            )
+          }}
+        />
         <Tab.Screen name='booking' component={BookingScreen} />
         <Tab.Screen name='profile' component={ProfileScreen} />
     </Tab.Navigator>

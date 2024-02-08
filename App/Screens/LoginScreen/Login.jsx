@@ -3,15 +3,15 @@ import React from 'react'
 import Colors from '../../Utils/Colors'
 
 import { useOAuth } from "@clerk/clerk-expo";
-import { useWarmUpBrowser } from '../../hooks/warmUpBrowser'
+// import { useWarmUpBrowser } from '../../hooks/warmUpBrowser'
 
-import * as WebBrowser from 'expo-web-browser'
+// import * as WebBrowser from 'expo-web-browser'
 
-WebBrowser.maybeCompleteAuthSession();
+// WebBrowser.maybeCompleteAuthSession();
 
 export default function Login() {
 
-    useWarmUpBrowser();
+    // useWarmUpBrowser();
 
     const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
 

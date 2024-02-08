@@ -27,8 +27,34 @@ export default function TabNavigation() {
             )
           }}
         />
-        <Tab.Screen name='booking' component={BookingScreen} />
-        <Tab.Screen name='profile' component={ProfileScreen} />
+        <Tab.Screen 
+          name='booking' 
+          component={BookingScreen} 
+          options={{
+            tabBarLabel: ({color})=>(
+              <Text style={{color: color, fontSize: 12, marginTop: -7}}>
+                Booking
+              </Text>
+            ),
+            tabBarIcon: ({color, size})=>(
+              <Ionicons name="calendar-outline" size={size} color={color} />
+            )
+          }}
+        />
+        <Tab.Screen 
+          name='profile' 
+          component={ProfileScreen} 
+          options={{
+            tabBarLabel: ({color})=>(
+              <Text style={{color: color, fontSize: 12, marginTop: -7}}>
+                Profile
+              </Text>
+            ),
+            tabBarIcon: ({color, size})=>(
+              <Ionicons name="person-outline" size={size} color={color} />
+            )
+          }}
+        />
     </Tab.Navigator>
   )
 }

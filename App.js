@@ -31,7 +31,6 @@ export default function App() {
       >
       <View style={styles.container}>
         <SignedIn>
-          <Text>You are Signed in</Text>
           <NavigationContainer>
             <TabNavigation />
           </NavigationContainer>

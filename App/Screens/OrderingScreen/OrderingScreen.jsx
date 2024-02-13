@@ -15,7 +15,7 @@ export default function OrderingScreen() {
 const styles = StyleSheet.create({
     subContainer: {
         width: '100%',
-        backgroundColor: Colors.SECONDARY,
+        backgroundColor: Colors.ORANGE,
         height: '100%',
         marginTop: '-20',
         borderTopRightRadius: 30,

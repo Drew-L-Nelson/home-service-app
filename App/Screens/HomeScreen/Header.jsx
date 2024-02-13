@@ -4,6 +4,8 @@ import { useUser } from '@clerk/clerk-expo'
 import Colors from '../../Utils/Colors';
 import { Ionicons } from '@expo/vector-icons';
 
+//testing
+
 export default function Header() {
     const {user, isLoading} = useUser();
 

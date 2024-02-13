@@ -6,14 +6,17 @@ import BookingScreen from '../Screens/BookingScreen/BookingScreen';
 import ProfileScreen from '../Screens/ProfileScreen/ProfileScreen';
 import { Ionicons } from '@expo/vector-icons';
 import OrderingScreen from '../Screens/OrderingScreen/OrderingScreen';
+import Colors from '../Utils/Colors';
 
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigation() {
   return (
     <Tab.Navigator
-      screenOptions={{ headerShown: false }}
-    >
+      screenOptions={{ 
+        headerShown: false, 
+        tabBarActiveTintColor: Colors.PRIMARY
+      }}>
         <Tab.Screen 
           name='home' 
           component={HomeScreen} 
@@ -24,7 +27,7 @@ export default function TabNavigation() {
               </Text>
             ),
             tabBarIcon: ({color, size})=>(
-              <Ionicons name="home-outline" size={size} color={color} />
+              <Ionicons name="home" size={size} color={color} />
             )
           }}
         />
@@ -39,7 +42,7 @@ export default function TabNavigation() {
               </Text>
             ),
             tabBarIcon: ({color, size})=>(
-              <Ionicons name="calendar-outline" size={size} color={color} />
+              <Ionicons name="calendar" size={size} color={color} />
             )
           }}
         />
@@ -54,7 +57,7 @@ export default function TabNavigation() {
               </Text>
             ),
             tabBarIcon: ({color, size})=>(
-              <Ionicons name="fast-food-outline" size={size} color={color} />
+              <Ionicons name="fast-food" size={size} color={color} />
             )
           }}
         />
@@ -69,7 +72,7 @@ export default function TabNavigation() {
               </Text>
             ),
             tabBarIcon: ({color, size})=>(
-              <Ionicons name="person-outline" size={size} color={color} />
+              <Ionicons name="person" size={size} color={color} />
             )
           }}
         />

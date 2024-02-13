@@ -4,6 +4,8 @@ import { useUser } from '@clerk/clerk-expo'
 import Colors from '../../Utils/Colors';
 import { Ionicons } from '@expo/vector-icons';
 
+//testing
+
 export default function Header() {
     const {user, isLoading} = useUser();
 
@@ -18,7 +20,7 @@ export default function Header() {
                         <Text style={{color: Colors.WHITE, fontSize: 20}}>{user.firstName} 🙂</Text>
                     </View>
                 </View>
-                <Ionicons name="bookmark-outline" size={24} color="white" />
+                <Ionicons name="bookmark-outline" size={27} color="white" />
             </View>
         </View>
     )

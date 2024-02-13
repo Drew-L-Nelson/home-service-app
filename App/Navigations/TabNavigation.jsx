@@ -15,7 +15,7 @@ export default function TabNavigation() {
     <Tab.Navigator
       screenOptions={{ 
         headerShown: false, 
-        tabBarActiveTintColor: Colors.PRIMARY
+        tabBarActiveTintColor: Colors.DARK_BLUE
       }}>
         <Tab.Screen 
           name='home' 

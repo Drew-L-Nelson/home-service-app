@@ -4,5 +4,14 @@ export default{
     ORANGE: '#F9682D',
     WHITE: '#fff',
     BLUE: '#02668D',
-    DARK_BLUE: '#02668D'
+    DARK_BLUE: '#02668D',
+    YELLOW1: '#F6DCAC',
+    ORANGE1: '#FCB985',
+    ORANGE2: '#FD6C2D',
+    RED1: '#F83213',
+    BLUE1: '#6FACA1',
+    BLUE2: '#018795',
+    BLUE3: '#02688E',
+    BLUE4: '#011E4D',
+
 }

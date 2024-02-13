@@ -5,7 +5,7 @@ import Colors from '../../Utils/Colors'
 export default function OrderingScreen() {
   return (
     <View style={styles.subContainer}>
-            <Text style={{fontSize: 27, color: Colors.BLUE, textAlign: 'center'}}>
+            <Text style={{fontSize: 27, color: Colors.WHITE, textAlign: 'center'}}>
                 <Text style={{fontWeight: 'bold'}}>Order Burgers Here</Text>
             </Text>
     </View>

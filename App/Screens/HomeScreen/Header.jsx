@@ -3,7 +3,6 @@ import React from 'react'
 import { useUser } from '@clerk/clerk-expo'
 import Colors from '../../Utils/Colors';
 import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 
 export default function Header() {
     const {user, isLoading} = useUser();

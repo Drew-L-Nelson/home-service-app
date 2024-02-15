@@ -19,4 +19,6 @@ const result = await request(MASTER_URL, query);
     return result;
 }
 
-export default getSlider;
+export default {
+    getSlider
+}

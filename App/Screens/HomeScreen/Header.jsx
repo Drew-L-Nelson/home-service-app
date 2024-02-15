@@ -15,8 +15,8 @@ export default function Header() {
                     <Image source={{ uri: user?.imageUrl }}
                     style={styles.userImage} />
                     <View>
-                        <Text style={{color: Colors.WHITE}}>Welcome, </Text>
-                        <Text style={{color: Colors.WHITE, fontSize: 20}}>{user.firstName} 🙂</Text>
+                        <Text style={{color: Colors.WHITE, fontFamily: 'outfit'}}>Welcome, </Text>
+                        <Text style={{color: Colors.WHITE, fontSize: 20, fontFamily: 'outfit-medium'}}>{user.firstName} 🙂</Text>
                     </View>
                 </View>
                 <Ionicons name="bookmark-outline" size={27} color="white" />

@@ -22,8 +22,10 @@ export default function Slider() {
         <Text style={styles.heading}>Offers For You</Text>
         <FlatList 
             data={slider}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
             renderItem={({item,index})=>(
-                <View>
+                <View style={{marginRight:20}}>
                     <Image source={{uri:item?.image?.url}}
                         style={styles.sliderImage}
                     />
@@ -41,9 +43,9 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     sliderImage: {
-        width: 270,
+        width: 335,
         height: 150,
-        borderRadius: 20,
+        borderRadius: 30,
         objectFit: 'contain'
     }
 })

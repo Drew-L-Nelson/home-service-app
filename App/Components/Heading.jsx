@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-export default function Heading() {
+export default function Heading({text, isViewAll=false}) {
   return (
     <View>
-      <Text style={styles.heading}>Offers For You</Text>
+      <Text style={styles.heading}>
+        {text}
+      </Text>
     </View>
   )
 }

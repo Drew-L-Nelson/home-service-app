@@ -9,7 +9,6 @@ export default function Categories() {
 
     const getCategories = () => {
         GlobalApi.getCategories().then(resp => {
-            console.log('resp', resp.categories)
             setCategories(resp?.categories)
         })
     }
@@ -43,6 +42,7 @@ const styles = StyleSheet.create ({
         width: 150,
         height: 150,
         borderRadius: 30,
+        backgroundColor: 'white',
         objectFit: 'contain'
     }
 })

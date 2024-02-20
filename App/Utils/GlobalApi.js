@@ -35,7 +35,24 @@ const getCategories = async() => {
     return result;
 }
 
+const getStories = async() => {
+    const query = gql`
+    query GetStories {
+        stories {
+          id
+          name
+          image {
+            url
+          }
+        }
+      }
+    `
+    const result = await request(MASTER_URL, query);
+    return result;
+}
+
 export default {
     getSlider,
-    getCategories
+    getCategories,
+    getStories
 }

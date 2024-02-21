@@ -20,7 +20,7 @@ export default function Slider() {
 
     return (
         <View>
-        <Heading text={'Offers For You'}/>
+        <Heading text={'Offers For You'} isViewAll={true}/>
         <FlatList 
             data={slider}
             horizontal={true}

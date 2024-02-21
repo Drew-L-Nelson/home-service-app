@@ -19,7 +19,7 @@ useEffect(() => {
 
   return (
     <View>
-        <Heading text={'Categories'}/>
+        <Heading text={'Categories'} isViewAll={true}/>
         <FlatList 
             data={categories}
             horizontal={true}

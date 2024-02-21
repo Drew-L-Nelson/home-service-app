@@ -12,7 +12,6 @@ export default function HomeScreen() {
       <ScrollView 
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}>
-        {/* <View style={{padding:20}}> */}
         <View>
           <Stories />
           <Slider />

@@ -20,7 +20,7 @@ export default function Stories() {
 
     return (
         <View>
-            <Heading text={'Restaurant News'}/>
+            <Heading text={'Restaurant News'} isViewAll={true}/>
             <FlatList 
                 data={stories}
                 horizontal={true}

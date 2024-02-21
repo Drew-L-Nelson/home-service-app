@@ -3,15 +3,24 @@ import React from 'react'
 
 export default function Heading({text, isViewAll=false}) {
   return (
-    <View style={{paddingLeft: 20}}>
+    <View style={styles.container}>
       <Text style={styles.heading}>
         {text}
       </Text>
+      {isViewAll&&<Text>View All</Text>}
     </View>
   )
 }
 
 const styles = StyleSheet.create ({
+    container: {
+      paddingLeft: 20,
+      paddingRight: 10,
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between'
+    }, 
     heading: {
         fontSize:20,
         fontFamily: 'outfit-medium',

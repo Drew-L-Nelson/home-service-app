@@ -20,13 +20,13 @@ export default function Stories() {
 
     return (
         <View>
-            <Heading text={'Restaurant News'}/>
+            <Heading text={'Restaurant News'} isViewAll={true}/>
             <FlatList 
                 data={stories}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 renderItem={({item, index}) => (
-                    <View style={{marginRight:20}}>
+                    <View style={styles.scrollLeft}>
                     <Image source={{uri:item?.image?.url}}
                         style={styles.sliderImage}
                     />
@@ -43,5 +43,9 @@ const styles = StyleSheet.create({
         height: 200,
         borderRadius: 30,
         objectFit: 'contain'
+    },
+    scrollLeft: {
+        paddingHorizontal: 20,
+        marginRight: -20
     }
 })

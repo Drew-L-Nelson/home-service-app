@@ -19,13 +19,13 @@ useEffect(() => {
 
   return (
     <View>
-        <Heading text={'Categories'}/>
+        <Heading text={'Categories'} isViewAll={true}/>
         <FlatList 
             data={categories}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             renderItem={({item, index})=>(
-                <View style={{marginRight:20}}>
+                <View style={styles.scrollLeft}>
                     <Image
                         source={{uri:item?.icon?.url}}
                         style={styles.sliderImage}
@@ -44,5 +44,9 @@ const styles = StyleSheet.create ({
         borderRadius: 30,
         backgroundColor: 'white',
         objectFit: 'contain'
+    },
+    scrollLeft: {
+        paddingHorizontal: 20,
+        marginRight: -20
     }
 })

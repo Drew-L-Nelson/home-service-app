@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Heading({text, isViewAll=false}) {
   return (
-    <View>
+    <View style={{paddingLeft: 20}}>
       <Text style={styles.heading}>
         {text}
       </Text>

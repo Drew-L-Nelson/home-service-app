@@ -51,8 +51,10 @@ const styles = StyleSheet.create ({
         alignItems: 'center'
     },
     iconContainer: {
+        borderColor: Colors.DARK_BLUE,
+        borderWidth: 4,
         borderRadius: 99,
         padding: 17,
-        backgroundColor: Colors.BLUE
+        backgroundColor: Colors.WHITE
     }
 })

@@ -33,6 +33,7 @@ useEffect(() => {
                             style={styles.sliderImage}
                         />
                     </View>
+                    <Text style={{fontFamily:'outfit-medium',marginTop:5}}>{item?.name}</Text>
                 </View>
             )}
         />

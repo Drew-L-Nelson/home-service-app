@@ -27,7 +27,7 @@ export default function BusinessList() {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 renderItem={({item,index})=>(
-                    <View>
+                    <View style={styles.scrollLeft}>
                         <BusinessListItemSmall business={item}/>
                     </View>
                 )}
@@ -35,3 +35,10 @@ export default function BusinessList() {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    scrollLeft: {
+        paddingHorizontal: 20,
+        marginRight: -20
+    }
+})

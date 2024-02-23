@@ -8,6 +8,27 @@ export default function BusinessListItemSmall({business}) {
       <Image source={{uri:business?.images[0]?.url}}
         style={styles.image}
       />
+      <View>
+        <Text style={{fontSize:17,fontFamily:'outfit-bold'}}>
+            {business?.name}
+        </Text>
+        <Text style={{fontSize:13,fontStyle: 'italic'}}>
+            {business?.contactPerson}
+        </Text>
+
+        <View style={{paddingTop:3}}>
+            <Text style={{
+                fontSize:10,
+                padding:3,
+                color: Colors.BLUE4,
+                backgroundColor: Colors.BLUE1,
+                borderRadius: 3,
+                overflow: 'hidden',
+                alignItems: 'flex-start',
+                fontFamily:'outfit-medium'}}>{business?.category.name}</Text>
+        </View>
+
+      </View>
     </View>
   )
 }

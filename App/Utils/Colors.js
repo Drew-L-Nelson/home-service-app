@@ -3,6 +3,7 @@ export default{
     PRIMARY: '#8E3FFF',
     ORANGE: '#F9682D',
     WHITE: '#fff',
+    LIGHT_GREY: '#EDEDED',
     BLUE: '#02668D',
     DARK_BLUE: '#02668D',
     YELLOW1: '#F6DCAC',

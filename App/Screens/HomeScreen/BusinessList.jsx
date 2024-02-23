@@ -20,7 +20,16 @@ export default function BusinessList() {
 
     return (
         <View>
-        <Heading text={'Business List'} isViewAll={true}/>
+            <Heading text={'Business List'} isViewAll={true}/>
+
+            <FlatList 
+                data={business}
+                renderItem={({item,index})=>(
+                    <View>
+                        <Text>{item?.name}</Text>
+                    </View>
+                )}
+            />
         </View>
     )
 }

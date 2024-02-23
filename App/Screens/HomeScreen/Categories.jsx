@@ -33,6 +33,7 @@ useEffect(() => {
                             style={styles.sliderImage}
                         />
                     </View>
+                    <Text style={{fontFamily:'outfit-medium',marginTop:5}}>{item?.name}</Text>
                 </View>
             )}
         />
@@ -50,8 +51,10 @@ const styles = StyleSheet.create ({
         alignItems: 'center'
     },
     iconContainer: {
+        borderColor: Colors.DARK_BLUE,
+        borderWidth: 4,
         borderRadius: 99,
         padding: 17,
-        backgroundColor: Colors.BLUE
+        backgroundColor: Colors.WHITE
     }
 })

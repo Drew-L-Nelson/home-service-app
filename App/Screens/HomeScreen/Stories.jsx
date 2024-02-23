@@ -9,7 +9,6 @@ export default function Stories() {
 
     const getStories = () => {
         GlobalApi.getStories().then(resp => {
-            console.log('resp', resp.stories)
             setStories(resp?.stories)
         })
     }
@@ -20,7 +19,7 @@ export default function Stories() {
 
     return (
         <View>
-            <Heading text={'Restaurant News'} isViewAll={true}/>
+            <Heading text={'Business News'} isViewAll={true}/>
             <FlatList 
                 data={stories}
                 horizontal={true}

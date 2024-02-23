@@ -23,7 +23,8 @@ useEffect(() => {
         <Heading text={'Categories'} isViewAll={true}/>
         <FlatList 
             data={categories}
-            numColumns={4}
+            horizontal={true}
+            // numColumns={4}
             showsHorizontalScrollIndicator={false}
             renderItem={({item, index})=>(
                 <View style={styles.container}>
@@ -47,8 +48,9 @@ const styles = StyleSheet.create ({
         height: 30,
     },
     container: {
-        flex: 1,
-        alignItems: 'center'
+        paddingHorizontal: 20,
+        flexDirection: 'column',
+        alignItems: 'center',
     },
     iconContainer: {
         borderColor: Colors.DARK_BLUE,

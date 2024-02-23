@@ -26,10 +26,10 @@ export default function Stories() {
                 showsHorizontalScrollIndicator={false}
                 renderItem={({item, index}) => (
                     <View style={styles.scrollLeft}>
-                    <Image source={{uri:item?.image?.url}}
-                        style={styles.sliderImage}
-                    />
-                </View>
+                        <Image source={{uri:item?.image?.url}}
+                            style={styles.sliderImage}
+                        />
+                    </View>
                 )}
             />
         </View>

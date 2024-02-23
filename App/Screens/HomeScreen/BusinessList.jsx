@@ -10,7 +10,6 @@ export default function BusinessList() {
 
     const getBusinessList = () => {
         GlobalApi.getBusinessList().then(resp => {
-            console.log('resp', resp.businessLists)
             setBusiness(resp?.businessLists)
         })
     }
@@ -25,6 +24,8 @@ export default function BusinessList() {
 
             <FlatList 
                 data={business}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
                 renderItem={({item,index})=>(
                     <View>
                         <BusinessListItemSmall business={item}/>

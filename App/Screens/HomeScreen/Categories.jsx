@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, FlatList, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import GlobalApi from '../../Utils/GlobalApi'
 import Heading from '../../Components/Heading';
+import Colors from '../../Utils/Colors';
 
 export default function Categories() {
 
@@ -22,14 +23,16 @@ useEffect(() => {
         <Heading text={'Categories'} isViewAll={true}/>
         <FlatList 
             data={categories}
-            horizontal={true}
+            numColumns={4}
             showsHorizontalScrollIndicator={false}
             renderItem={({item, index})=>(
-                <View style={styles.scrollLeft}>
-                    <Image
-                        source={{uri:item?.icon?.url}}
-                        style={styles.sliderImage}
-                    />
+                <View style={styles.container}>
+                    <View style={styles.iconContainer}>
+                        <Image
+                            source={{uri:item?.icon?.url}}
+                            style={styles.sliderImage}
+                        />
+                    </View>
                 </View>
             )}
         />
@@ -39,14 +42,16 @@ useEffect(() => {
 
 const styles = StyleSheet.create ({
     sliderImage: {
-        width: 150,
-        height: 150,
-        borderRadius: 30,
-        backgroundColor: 'white',
-        objectFit: 'contain'
+        width: 30,
+        height: 30,
     },
-    scrollLeft: {
-        paddingHorizontal: 20,
-        marginRight: -20
+    container: {
+        flex: 1,
+        alignItems: 'center'
+    },
+    iconContainer: {
+        borderRadius: 99,
+        padding: 17,
+        backgroundColor: Colors.BLUE
     }
 })

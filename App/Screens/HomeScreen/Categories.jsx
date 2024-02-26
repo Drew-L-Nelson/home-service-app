@@ -30,9 +30,7 @@ useEffect(() => {
             showsHorizontalScrollIndicator={false}
             renderItem={({item, index})=>(
                 <TouchableOpacity 
-                    onPress={()=>navigation.push('business-list',{
-                        category:item.name
-                    })}
+                    onPress={()=>navigation.push('business-list',{category: item.name})}
                     style={styles.container}
                 >
                     <View style={styles.iconContainer}>

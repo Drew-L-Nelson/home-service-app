@@ -1,11 +1,12 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useEffect } from 'react'
-import { useRoute } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { Ionicons } from '@expo/vector-icons';
 
 export default function BusinessListByCategory() {
 
     const param = useRoute().params;
+    const navigation = useNavigation();
 
     useEffect(() => {
         console.log('Category', param.category);
@@ -14,7 +15,9 @@ export default function BusinessListByCategory() {
     return (
         <View style={{padding:20}}>
             <View style={styles.iconView}>
-                <Ionicons name="arrow-back-outline" size={30} color="black" />
+                <TouchableOpacity onPress={()=>navigation.goBack()}>
+                    <Ionicons name="arrow-back-outline" size={30} color="black" />
+                </TouchableOpacity>
                 <Text style={{fontSize: 25,fontFamily:'outfit-medium'}}>{param.category}</Text>
             </View>
         </View>

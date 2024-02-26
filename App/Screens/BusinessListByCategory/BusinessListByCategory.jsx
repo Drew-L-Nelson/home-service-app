@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useEffect } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { Ionicons } from '@expo/vector-icons';
+import GlobalApi from '../../Utils/GlobalApi';
 
 export default function BusinessListByCategory() {
 
@@ -9,8 +10,15 @@ export default function BusinessListByCategory() {
     const navigation = useNavigation();
 
     useEffect(() => {
-        console.log('Category', param.category);
-    },[])
+        param&&getBusinessByCategory();
+    },[param])
+
+    const getBusinessByCategory = () => {
+        GlobalApi.getBusinessListByCategory(param.category).then(resp=> {
+            console.log(resp.businessLists);
+            console.log('param -->', param);
+        })
+    }
 
     return (
         <View style={{padding:20}}>

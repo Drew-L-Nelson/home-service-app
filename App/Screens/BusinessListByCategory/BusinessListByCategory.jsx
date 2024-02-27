@@ -32,6 +32,7 @@ export default function BusinessListByCategory() {
             </View>
             <FlatList 
                 data={businessList}
+                style={{marginTop:15}}
                 renderItem={({item, index})=>(
                     <BusinessListItem business={item}/>
                 )}

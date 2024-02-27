@@ -1,6 +1,7 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import Colors from '../../Utils/Colors'
+import { Ionicons } from '@expo/vector-icons';
 
 export default function BusinessListItem({business}) {
   return (
@@ -11,7 +12,14 @@ export default function BusinessListItem({business}) {
       <View style={styles.subContainer}>
         <Text style={{fontFamily: 'outfit-bold',fontSize:19}}>{business.name}</Text>
         <Text style={{fontFamily: 'outfit',color:Colors.GREY}}>{business.contactPerson}</Text>
-        <Text style={{fontFamily: 'outfit',color:Colors.GREY,fontSize:16}}>{business.address1}</Text>
+        <View style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+            <Ionicons name="location-sharp" size={20} color={Colors.BLUE2} 
+            style={{marginRight:2}}
+            />
+            <Text style={{fontFamily: 'outfit',color:Colors.GREY,fontSize:16}}>
+                {business.address1}
+            </Text>
+        </View>
       </View>
     </View>
   )
@@ -29,7 +37,7 @@ const styles = StyleSheet.create ({
     },
     subContainer: {
         display: 'flex',
-        gap: 7
+        gap: 8
     },
     image: {
         width: 100,

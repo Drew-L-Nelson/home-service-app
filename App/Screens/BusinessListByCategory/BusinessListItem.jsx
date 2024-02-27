@@ -8,10 +8,10 @@ export default function BusinessListItem({business}) {
       <Image source={{uri:business?.images[0]?.url}} 
         style={styles.image}
       />
-      <View>
-        <Text>{business.contactPerson}</Text>
-        <Text>{business.name}</Text>
-        <Text>{business.address1}</Text>
+      <View style={styles.subContainer}>
+        <Text style={{fontFamily: 'outfit-bold',fontSize:19}}>{business.name}</Text>
+        <Text style={{fontFamily: 'outfit',color:Colors.GREY}}>{business.contactPerson}</Text>
+        <Text style={{fontFamily: 'outfit',color:Colors.GREY,fontSize:16}}>{business.address1}</Text>
       </View>
     </View>
   )
@@ -22,7 +22,14 @@ const styles = StyleSheet.create ({
         padding: 10,
         backgroundColor: Colors.WHITE,
         borderRadius: 15,
-        marginBottom: 15
+        marginBottom: 15,
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 10
+    },
+    subContainer: {
+        display: 'flex',
+        gap: 7
     },
     image: {
         width: 100,

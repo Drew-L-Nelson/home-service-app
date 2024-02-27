@@ -37,8 +37,17 @@ export default function BusinessListItemSmall({business}) {
 const styles = StyleSheet.create({
     container: {
         padding: 10,
+        //margin for card set to 7. paddingHorizontal in BusinessList is adjusted to 13
+        margin: 7,
         backgroundColor: Colors.WHITE,
-        borderRadius: 10  
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 3
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 2  
     },
     infoContainer: {
         padding: 7,
@@ -51,3 +60,11 @@ const styles = StyleSheet.create({
         borderRadius: 10
     }
 })
+
+    // shadowColor: "#000", // Black color for the shadow
+    // shadowOffset: {
+    //     width: 0, // slight shadow on the sides
+    //     height: 4, // darker shadow on the bottom
+    // },
+    // shadowOpacity: 0.3, // Adjust opacity to make the shadow lighter or darker
+    // shadowRadius: 5,

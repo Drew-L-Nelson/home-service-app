@@ -20,7 +20,8 @@ export default function Stories() {
     return (
         <View>
             <Heading text={'Business News'} isViewAll={true}/>
-            <FlatList 
+            <View style={styles.flatListContainer}>
+                <FlatList 
                 data={stories}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
@@ -32,11 +33,21 @@ export default function Stories() {
                     </View>
                 )}
             />
+            </View>
         </View>
     )
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create ({
+    flatListContainer: {
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 3
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 2 
+    },
     sliderImage: {
         width: 200,
         height: 200,

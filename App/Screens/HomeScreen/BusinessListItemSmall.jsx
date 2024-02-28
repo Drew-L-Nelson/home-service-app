@@ -1,10 +1,17 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Colors from '../../Utils/Colors'
+import { useNavigation } from '@react-navigation/native';
 
 export default function BusinessListItemSmall({business}) {
+
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity 
+      style={styles.container} 
+      onPress={()=>navigation.push('business-detail',{business:business})}
+    >
       <Image source={{uri:business?.images[0]?.url}}
         style={styles.image}
       />
@@ -30,7 +37,7 @@ export default function BusinessListItemSmall({business}) {
         </View>
 
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
@@ -38,7 +45,9 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         //margin for card set to 7. paddingHorizontal in BusinessList is adjusted to 13
-        margin: 7,
+        marginBottom: 7,
+        marginLeft: 7,
+        marginRight: 7,
         backgroundColor: Colors.WHITE,
         borderRadius: 10,
         shadowColor: '#000',
@@ -60,11 +69,3 @@ const styles = StyleSheet.create({
         borderRadius: 10
     }
 })
-
-    // shadowColor: "#000", // Black color for the shadow
-    // shadowOffset: {
-    //     width: 0, // slight shadow on the sides
-    //     height: 4, // darker shadow on the bottom
-    // },
-    // shadowOpacity: 0.3, // Adjust opacity to make the shadow lighter or darker
-    // shadowRadius: 5,

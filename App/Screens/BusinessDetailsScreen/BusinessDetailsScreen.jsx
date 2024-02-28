@@ -10,6 +10,11 @@ export default function BusinessDetailsScreen() {
   const param = useRoute().params;
   const navigation = useNavigation();
   const [business, setBusiness] = useState(param.business);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);
+  }
 
   return (
     <View>
@@ -54,17 +59,20 @@ export default function BusinessDetailsScreen() {
           {/* Horizontal Line */}
         </View>
 
-        {/* About Section */}
+        {/* About Section with expandable text*/}
         <View style={{marginBottom:-10,marginTop:-10}}>
           <View style={{marginLeft:-20}}>
             <Heading text={'About'}/>
           </View>
           
-          <Text style={{fontFamily:'outfit',
+          <TouchableOpacity onPress={toggleExpanded}>
+            <Text style={{fontFamily:'outfit',
             color:Colors.GREY,
             fontSize:16}}
-            numberOfLines={4}
+            numberOfLines={isExpanded ? undefined : 4}
           >{business?.about}</Text>
+          </TouchableOpacity>
+          
         </View>
 
       </View>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Colors from '../../Utils/Colors';
+import Heading from '../../Components/Heading';
 
 export default function BusinessDetailsScreen() {
 
@@ -35,14 +36,37 @@ export default function BusinessDetailsScreen() {
             overflow: 'hidden'
             }}>{business?.category.name}</Text>
         </View>
-        <View style={{display:'flex',flexDirection:'row'}}>
-          <Ionicons name="location-sharp" size={30} color={Colors.BLUE} 
+        <View style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+          <Ionicons name="location-sharp" size={35} color={Colors.BLUE} 
             style={{marginRight:5,marginLeft:-4}}/>
           <View>
-            <Text>{business?.address1}</Text>
-            <Text>{business?.address2}</Text>
+            <Text style={styles.addressText}>{business?.address1}</Text>
+            <Text style={styles.addressText}>{business?.address2}</Text>
           </View>
         </View>
+
+        {/* Horizontal Line */}
+        <View style={{borderWidth:0.7,
+          borderColor:Colors.GREY,
+          marginTop:20,
+          marginBottom:20}}
+        >
+          {/* Horizontal Line */}
+        </View>
+
+        {/* About Section */}
+        <View style={{marginBottom:-10,marginTop:-10}}>
+          <View style={{marginLeft:-20}}>
+            <Heading text={'About'}/>
+          </View>
+          
+          <Text style={{fontFamily:'outfit',
+            color:Colors.GREY,
+            fontSize:16}}
+            numberOfLines={4}
+          >{business?.about}</Text>
+        </View>
+
       </View>
     </View>
   )
@@ -67,5 +91,10 @@ const styles = StyleSheet.create ({
     flexDirection: 'row',
     gap: 5,
     alignItems: 'center'
+  },
+  addressText: {
+    fontSize: 17,
+    fontFamily: 'outfit-medium',
+    color:Colors.GREY
   }
 })

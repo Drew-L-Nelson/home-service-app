@@ -40,8 +40,7 @@ const styles = StyleSheet.create({
     sliderImage: {
         width: 335,
         height: 150,
-        borderRadius: 30,
-        objectFit: 'contain'
+        borderRadius: 24,
     },
     scrollLeft: {
         paddingHorizontal: 20,

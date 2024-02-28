@@ -67,10 +67,10 @@ export default function BusinessDetailsScreen() {
           
           <TouchableOpacity onPress={toggleExpanded}>
             <Text style={{fontFamily:'outfit',
-            color:Colors.GREY,
-            fontSize:16}}
-            numberOfLines={isExpanded ? undefined : 4}
-          >{business?.about}</Text>
+              color:Colors.GREY,
+              fontSize:16}}
+              numberOfLines={isExpanded ? undefined : 3}
+            >{business?.about}</Text>
           </TouchableOpacity>
           
         </View>

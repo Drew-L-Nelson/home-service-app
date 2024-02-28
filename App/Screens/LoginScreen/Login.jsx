@@ -33,21 +33,21 @@ export default function Login() {
   return (
     <View style={{alignItems: 'center'}}>
 
-      <Image source={require('./../../../assets/images/login.png')} 
+      <Image source={require('./../../../assets/images/burger_app_login.jpeg')} 
         style={styles.loginImage}
       />
 
       <View style={styles.subContainer}>
         <Text style={{fontSize: 27, color: Colors.WHITE, textAlign: 'center'}}>
-            Let's Find <Text style={{fontWeight: 'bold'}}>Professional Cleaning and Repair</Text> Service
+            Let's Find <Text style={{fontWeight: 'bold'}}>Restaurants</Text> Near you!!
         </Text>
 
         <Text style={{fontSize: 17, color: Colors.WHITE, textAlign: 'center', marginTop: 20}}>
-            Best App to find services near you which deliver you a professional service
+            Best App to find news, menu items, daily specials and more from restaurants in your town
         </Text>
 
         <TouchableOpacity style={styles.button} onPress={onPress}>
-            <Text style={{textAlign: 'center', fontSize: 17, color: Colors.PRIMARY}}>
+            <Text style={{textAlign: 'center', fontSize: 17, color: Colors.ORANGE}}>
                 Let's Get Started
             </Text>
         </TouchableOpacity>
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     },
     subContainer: {
         width: '100%',
-        backgroundColor: Colors.PRIMARY,
+        backgroundColor: Colors.ORANGE,
         height: '70%',
         marginTop: '-20',
         borderTopRightRadius: 30,

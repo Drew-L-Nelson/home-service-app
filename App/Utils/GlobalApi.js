@@ -63,7 +63,8 @@ const getBusinessList = async() => {
             name
           }
           about
-          address
+          address1
+          address2
           images {
             url
           }
@@ -86,7 +87,8 @@ const getBusinessListByCategory = async(category) => {
             name
           }
           about
-          address
+          address1
+          address2
           images {
             url
           }

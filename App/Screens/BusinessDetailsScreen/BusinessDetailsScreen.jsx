@@ -21,21 +21,28 @@ export default function BusinessDetailsScreen() {
       <View style={styles.infoContainer}>
         <Text style={{fontFamily:'outfit-bold',
         fontSize:25}}>{business?.name}</Text>
-        <View>
+        <View style={styles.subContainer}>
           <Text style={{
             fontFamily:'outfit-medium',
             color:Colors.BLUE2,
-            fontSize:20}}>{business?.contactPerson}</Text>
+            fontSize:20}}>{business?.contactPerson} 🌟 </Text>
           <Text style={{
             color:Colors.BLUE4,
-            backgroundColor:Colors.YELLOW1,
+            backgroundColor:Colors.ORANGE1,
+            fontSize:14,
             padding:3,
             borderRadius:5,
             overflow: 'hidden'
             }}>{business?.category.name}</Text>
         </View>
-        <Text>{business?.address1}</Text>
-        <Text>{business?.address2}</Text>
+        <View style={{display:'flex',flexDirection:'row'}}>
+          <Ionicons name="location-sharp" size={30} color={Colors.BLUE} 
+            style={{marginRight:5,marginLeft:-4}}/>
+          <View>
+            <Text>{business?.address1}</Text>
+            <Text>{business?.address2}</Text>
+          </View>
+        </View>
       </View>
     </View>
   )
@@ -54,5 +61,11 @@ const styles = StyleSheet.create ({
     padding: 20,
     display: 'flex',
     gap: 7
+  },
+  subContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 5,
+    alignItems: 'center'
   }
 })

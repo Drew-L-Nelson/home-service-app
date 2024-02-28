@@ -12,23 +12,47 @@ export default function BusinessDetailsScreen() {
 
   return (
     <View>
+      <TouchableOpacity onPress={()=>navigation.goBack()} style={styles.backBtnContainer}>
+        <Ionicons name="arrow-back-outline" size={30} color="white" />
+      </TouchableOpacity>
       <Image source={{uri:business?.images[0]?.url}} 
         style={{width:'100%',height:300}}
       />
-      <TouchableOpacity onPress={()=>navigation.goBack()} style={styles.backBtn}>
-        <Ionicons name="arrow-back-outline" size={30} color="black" />
-      </TouchableOpacity>
+      <View style={styles.infoContainer}>
+        <Text style={{fontFamily:'outfit-bold',
+        fontSize:25}}>{business?.name}</Text>
+        <View>
+          <Text style={{
+            fontFamily:'outfit-medium',
+            color:Colors.BLUE2,
+            fontSize:20}}>{business?.contactPerson}</Text>
+          <Text style={{
+            color:Colors.BLUE4,
+            backgroundColor:Colors.YELLOW1,
+            padding:3,
+            borderRadius:5,
+            overflow: 'hidden'
+            }}>{business?.category.name}</Text>
+        </View>
+        <Text>{business?.address1}</Text>
+        <Text>{business?.address2}</Text>
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create ({
-  backBtn: {
+  backBtnContainer: {
     position: 'absolute',
     zIndex: 10,
-    padding: 17,
-    margin: 2,
+    padding: 10,
+    margin: 9,
     borderRadius: 99,
-    backgroundColor: 'rgba(128, 128, 128, 0.6)'
+    backgroundColor: 'rgba(128, 128, 128, 0.4)'
+  },
+  infoContainer: {
+    padding: 20,
+    display: 'flex',
+    gap: 7
   }
 })

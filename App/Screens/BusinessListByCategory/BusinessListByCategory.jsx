@@ -4,6 +4,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import { Ionicons } from '@expo/vector-icons';
 import GlobalApi from '../../Utils/GlobalApi';
 import BusinessListItem from './BusinessListItem';
+import Colors from '../../Utils/Colors';
 
 export default function BusinessListByCategory() {
 
@@ -30,18 +31,26 @@ export default function BusinessListByCategory() {
                 </TouchableOpacity>
                 <Text style={{fontSize: 25,fontFamily:'outfit-medium'}}>{param.category}</Text>
             </View>
-            <FlatList 
+            {businessList?.length>0? <FlatList 
                 data={businessList}
                 style={{marginTop:15}}
                 renderItem={({item, index})=>(
                     <BusinessListItem business={item}/>
                 )}
-            />
+            />:
+            <Text style={styles.noBusinessFound}>No Business Found</Text>}
         </View>
     )
 }
 
 const styles = StyleSheet.create ({
+    noBusinessFound: {
+        fontFamily: 'outfit-medium',
+        color: Colors.GREY,
+        fontSize: 20,
+        textAlign: 'center',
+        marginTop: '20%'
+    },
     iconView: {
         display: 'flex',
         flexDirection: 'row',

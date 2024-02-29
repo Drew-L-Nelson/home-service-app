@@ -1,9 +1,11 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Colors from '../../Utils/Colors';
 import Heading from '../../Components/Heading';
+import BusinessPhotos from './BusinessPhotos';
+import BusinessAbout from './BusinessAbout';
 
 export default function BusinessDetailsScreen() {
 
@@ -17,7 +19,7 @@ export default function BusinessDetailsScreen() {
   }
 
   return (
-    <View>
+    <ScrollView>
       <TouchableOpacity onPress={()=>navigation.goBack()} style={styles.backBtnContainer}>
         <Ionicons name="arrow-back-outline" size={30} color="white" />
       </TouchableOpacity>
@@ -59,24 +61,22 @@ export default function BusinessDetailsScreen() {
           {/* Horizontal Line */}
         </View>
 
-        {/* About Section with expandable text*/}
-        <View style={{marginBottom:-10,marginTop:-10}}>
-          <View style={{marginLeft:-20}}>
-            <Heading text={'About'}/>
-          </View>
-          
-          <TouchableOpacity onPress={toggleExpanded}>
-            <Text style={{fontFamily:'outfit',
-              color:Colors.GREY,
-              fontSize:16}}
-              numberOfLines={isExpanded ? undefined : 3}
-            >{business?.about}</Text>
-          </TouchableOpacity>
-          
+        {/* About Section */}
+        <BusinessAbout business={business}/>
+
+        {/* Horizontal Line */}
+        <View style={{borderWidth:0.7,
+          borderColor:Colors.GREY,
+          marginTop:30,
+          marginBottom:20}}
+        >
+          {/* Horizontal Line */}
         </View>
 
+        <BusinessPhotos business={business} />
+
       </View>
-    </View>
+    </ScrollView>
   )
 }
 

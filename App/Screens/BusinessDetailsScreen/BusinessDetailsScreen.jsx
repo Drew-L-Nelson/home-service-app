@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Colors from '../../Utils/Colors';
-import Heading from '../../Components/Heading';
 import BusinessPhotos from './BusinessPhotos';
 import BusinessAbout from './BusinessAbout';
+import BusinessDetailsButtons from '../Buttons/BusinessDetailsButtons';
 
 export default function BusinessDetailsScreen() {
 
@@ -19,8 +19,8 @@ export default function BusinessDetailsScreen() {
   }
 
   return (
-    <View>
-      <ScrollView style={{height:'90%'}}>
+    <View style={{flex:1}}>
+      <ScrollView>
         <TouchableOpacity onPress={()=>navigation.goBack()} style={styles.backBtnContainer}>
           <Ionicons name="arrow-back-outline" size={30} color="white" />
         </TouchableOpacity>
@@ -78,7 +78,27 @@ export default function BusinessDetailsScreen() {
 
         </View>
       </ScrollView>
-      <View style={{display:'flex',flexDirection:'row'}}>
+
+      {/* Buttons */}
+
+      <View style={{
+        position: 'absolute', // Position buttons absolutely
+        bottom: 0, // At the bottom of the parent View
+        left: 0,
+        right: 0,
+        zIndex:10,
+        backgroundColor: 'white'
+      }}>
+        <BusinessDetailsButtons /> 
+      </View>
+      
+
+      {/* <View style={{
+        display:'flex',
+        flexDirection:'row',
+        margin:8,
+        gap:8
+      }}>
         <TouchableOpacity style={styles.messageBtn}>
           <Text style={{
             textAlign:'center',
@@ -94,7 +114,8 @@ export default function BusinessDetailsScreen() {
             color:Colors.WHITE,
             fontSize:18}}>Message</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
+
     </View>
   )
 }
@@ -123,21 +144,5 @@ const styles = StyleSheet.create ({
     fontSize: 17,
     fontFamily: 'outfit-medium',
     color:Colors.GREY
-  },
-  messageBtn: {
-    padding: 15,
-    backgroundColor: Colors.WHITE,
-    borderWidth: 1,
-    borderColor: Colors.BLUE3,
-    borderRadius: 99,
-    flex:1
-  },
-  bookingBtn: {
-    padding: 15,
-    backgroundColor: Colors.BLUE3,
-    borderWidth: 1,
-    borderColor: Colors.BLUE3,
-    borderRadius: 99,
-    flex:1
   }
 })

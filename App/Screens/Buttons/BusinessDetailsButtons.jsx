@@ -1,30 +1,44 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import React from 'react'
+import { View, Text, TouchableOpacity, StyleSheet, Modal } from 'react-native'
+import React, { useState } from 'react'
 import Colors from '../../Utils/Colors'
 
 export default function BusinessDetailsButtons() {
-  return (
-    <View style={{
-        display:'flex',
-        flexDirection:'row',
-        margin:8,
-        gap:8
-    }}>
-        <TouchableOpacity style={styles.messageBtn}>
-          <Text style={{
-            textAlign:'center',
-            fontFamily:'outfit-medium',
-            color:Colors.BLUE3,
-            fontSize:18}}>Message</Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity style={styles.bookingBtn}>
-          <Text style={{
-            textAlign:'center',
-            fontFamily:'outfit-medium',
-            color:Colors.WHITE,
-            fontSize:18}}>Message</Text>
-        </TouchableOpacity>
+    const [showModal, setShowModal] = useState(false);
+
+  return (
+    <View>
+        <View style={{
+            display:'flex',
+            flexDirection:'row',
+            margin:8,
+            gap:8
+        }}>
+            <TouchableOpacity style={styles.messageBtn}>
+            <Text style={{
+                textAlign:'center',
+                fontFamily:'outfit-medium',
+                color:Colors.BLUE3,
+                fontSize:18}}>Message</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.bookingBtn}
+            onPress={()=>setShowModal(true)}>
+            <Text style={{
+                textAlign:'center',
+                fontFamily:'outfit-medium',
+                color:Colors.WHITE,
+                fontSize:18}}>Book Now</Text>
+            </TouchableOpacity>
+        </View>
+
+        {/* Booking Screen Modal */}
+        <Modal
+        animationType='slide'
+        visible={showModal}
+        >
+            <Text>Booking</Text>
+        </Modal>
     </View>
   )
 }

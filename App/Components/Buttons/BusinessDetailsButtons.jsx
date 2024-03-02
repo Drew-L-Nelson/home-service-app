@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from 'react-native'
 import React, { useState } from 'react'
 import Colors from '../../Utils/Colors'
+import BookingModal from '../../Screens/BusinessDetailsScreen/BookingModal';
 
 export default function BusinessDetailsButtons() {
 
@@ -37,7 +38,7 @@ export default function BusinessDetailsButtons() {
         animationType='slide'
         visible={showModal}
         >
-            <Text>Booking</Text>
+            <BookingModal />
         </Modal>
     </View>
   )

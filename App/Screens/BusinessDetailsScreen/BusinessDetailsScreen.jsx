@@ -5,7 +5,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import Colors from '../../Utils/Colors';
 import BusinessPhotos from './BusinessPhotos';
 import BusinessAbout from './BusinessAbout';
-import BusinessDetailsButtons from '../Buttons/BusinessDetailsButtons';
+import BusinessDetailsButtons from '../../Components/Buttons/BusinessDetailsButtons';
 
 export default function BusinessDetailsScreen() {
 
@@ -91,30 +91,6 @@ export default function BusinessDetailsScreen() {
       }}>
         <BusinessDetailsButtons /> 
       </View>
-      
-
-      {/* <View style={{
-        display:'flex',
-        flexDirection:'row',
-        margin:8,
-        gap:8
-      }}>
-        <TouchableOpacity style={styles.messageBtn}>
-          <Text style={{
-            textAlign:'center',
-            fontFamily:'outfit-medium',
-            color:Colors.BLUE3,
-            fontSize:18}}>Message</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.bookingBtn}>
-          <Text style={{
-            textAlign:'center',
-            fontFamily:'outfit-medium',
-            color:Colors.WHITE,
-            fontSize:18}}>Message</Text>
-        </TouchableOpacity>
-      </View> */}
 
     </View>
   )

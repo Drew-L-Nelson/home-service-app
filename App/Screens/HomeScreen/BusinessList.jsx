@@ -38,8 +38,8 @@ export default function BusinessList() {
 
 const styles = StyleSheet.create({
     scrollLeft: {
-        //paddingHorizontal is 13 here, not 20
-        //Margin for the card in BusinessListItemSmall is 7
+        //paddingHorizontal here is 13, not 20
+        //Margin for the card in BusinessListItemSmall is 7 to add up to 20
         paddingHorizontal: 13,
         marginRight: -20
     }

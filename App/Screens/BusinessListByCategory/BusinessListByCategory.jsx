@@ -37,7 +37,7 @@ export default function BusinessListByCategory() {
                 renderItem={({item, index})=>(
                     <BusinessListItem business={item}/>
                 )}
-            />:
+            />: //ternary operator in case businessList has nothing
             <Text style={styles.noBusinessFound}>No Business Found</Text>}
         </View>
     )

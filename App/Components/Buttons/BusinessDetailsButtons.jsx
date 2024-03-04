@@ -38,7 +38,7 @@ export default function BusinessDetailsButtons() {
         animationType='slide'
         visible={showModal}
         >
-            <BookingModal />
+            <BookingModal hideModal={()=>setShowModal(false)}/>
         </Modal>
     </View>
   )

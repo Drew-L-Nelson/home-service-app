@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import ModalCloseButton from '../../Components/Buttons/ModalCloseButton'
 import CalendarPicker from 'react-native-calendar-picker'
@@ -9,30 +9,30 @@ export default function BookingModal({hideModal}) {
 
     const [timeList, setTimeList] = useState();
 
-    useEffect(() => {
-        getTime();
-    },[])
-
     const getTime = () => {
-        const timeListGet = [];
+        const timeList = [];
         for(let i=8; i <=12;i++) {
-            timeListGet.push({
+            timeList.push({
                 time:i+':00 AM'
             })
-            timeListGet.push({
+            timeList.push({
                 time:i+':30 AM'
             })
         }
         for(let i=1; i <=7;i++) {
-            timeListGet.push({
+            timeList.push({
                 time:i+':00 PM'
             })
-            timeListGet.push({
+            timeList.push({
                 time:i+':30 PM'
             })
         }
-        setTimeList(timeListGet);
+        setTimeList(timeList);
     }
+
+    useEffect(() => {
+        getTime();
+    },[])
 
   return (
     <View>
@@ -47,6 +47,19 @@ export default function BookingModal({hideModal}) {
                 todayBackgroundColor={Colors.BLUE2}
                 todayTextStyle={{color:Colors.WHITE}}
                 selectedDayColor={{color:Colors.BLUE2}}
+            />
+        </View>
+        {/* Time Select Section */}
+        <View style={styles.timeContainer}>
+            <FlatList 
+                data={timeList}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                renderItem={({item, index})=>(
+                    <TouchableOpacity>
+                        <Text style={styles.unSelectedTime}>{item.time}</Text>
+                    </TouchableOpacity>
+                )}
             />
         </View>
     </View>
@@ -65,5 +78,13 @@ const styles = StyleSheet.create ({
         marginLeft: 8,
         marginRight: 8,
         borderRadius: 15
+    },
+    timeContainer: {
+        marginLeft: 8,
+    },
+    unSelectedTime: {
+        padding: 5,
+        borderWidth: 1,
+        borderColor: Colors.BLUE3
     }
 })

@@ -9,6 +9,11 @@ export default function BookingModal({hideModal}) {
 
     const [timeList, setTimeList] = useState();
     const [selectedTime, setSelectedTime] = useState();
+    const [selectedStartDate, setSelectedStartDate] = useState(null);
+
+    const onDateChange = (date) => {
+        setSelectedStartDate(date);
+      };
 
     const getTime = () => {
         const timeList = [];
@@ -43,11 +48,12 @@ export default function BookingModal({hideModal}) {
         <Heading text={'Select Date'} />
         <View style={styles.calendarContainer}>
             <CalendarPicker 
-                onDateChange={this.onDateChange} 
+                onDateChange={onDateChange} 
                 minDate={Date.now()}
                 todayBackgroundColor={Colors.BLUE2}
                 todayTextStyle={{color:Colors.WHITE}}
-                selectedDayColor={{color:Colors.BLUE2}}
+                selectedDayColor={Colors.BLUE2}
+                selectedDayTextColor={Colors.WHITE}
             />
         </View>
         {/* Time Select Section */}
@@ -61,7 +67,7 @@ export default function BookingModal({hideModal}) {
                     <TouchableOpacity style={{marginRight: 10}}
                         onPress={()=>setSelectedTime(item.time)}
                     >
-                        <Text style={[selectedTime==item.time ? styles.selectedTime : 
+                        <Text style={[selectedTime === item.time ? styles.selectedTime : 
                         styles.unSelectedTime]}
                         
                         >{item.time}</Text>

@@ -8,6 +8,7 @@ import Heading from '../../Components/Heading'
 export default function BookingModal({hideModal}) {
 
     const [timeList, setTimeList] = useState();
+    const [selectedTime, setSelectedTime] = useState();
 
     const getTime = () => {
         const timeList = [];
@@ -50,14 +51,20 @@ export default function BookingModal({hideModal}) {
             />
         </View>
         {/* Time Select Section */}
+        <Heading text={'Select Time Slot'}/>
         <View style={styles.timeContainer}>
             <FlatList 
                 data={timeList}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 renderItem={({item, index})=>(
-                    <TouchableOpacity>
-                        <Text style={styles.unSelectedTime}>{item.time}</Text>
+                    <TouchableOpacity style={{marginRight: 10}}
+                        onPress={()=>setSelectedTime(item.time)}
+                    >
+                        <Text style={[selectedTime==item.time ? styles.selectedTime : 
+                        styles.unSelectedTime]}
+                        
+                        >{item.time}</Text>
                     </TouchableOpacity>
                 )}
             />
@@ -81,10 +88,26 @@ const styles = StyleSheet.create ({
     },
     timeContainer: {
         marginLeft: 8,
+        paddingBottom: 5
+    },
+    selectedTime: {
+        padding: 10,
+        marginBottom: 5,
+        borderWidth: 2,
+        borderColor: Colors.BLUE3,
+        borderRadius: 21,
+        paddingHorizontal: 18,
+        backgroundColor: Colors.BLUE3,
+        color: Colors.WHITE,
+        overflow: 'hidden'
     },
     unSelectedTime: {
-        padding: 5,
-        borderWidth: 1,
-        borderColor: Colors.BLUE3
+        padding: 10,
+        marginBottom: 5,
+        borderWidth: 2,
+        borderColor: Colors.BLUE3,
+        borderRadius: 21,
+        paddingHorizontal: 18,
+        color: Colors.BLUE3
     }
 })

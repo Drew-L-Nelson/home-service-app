@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import ModalCloseButton from '../../Components/Buttons/ModalCloseButton'
 import CalendarPicker from 'react-native-calendar-picker'
@@ -75,6 +75,16 @@ export default function BookingModal({hideModal}) {
                 )}
             />
         </View>
+        {/* Note Section */}
+        <View>
+            <Heading text={'Any Suggestion Note'}/>
+            <TextInput 
+                placeholder='Note' 
+                style={styles.noteText} 
+                numberOfLines={6}
+                multiline={true}
+            />
+        </View>
     </View>
   )
 }
@@ -94,11 +104,11 @@ const styles = StyleSheet.create ({
     },
     timeContainer: {
         marginLeft: 8,
-        paddingBottom: 5
+        paddingBottom: 0
     },
     selectedTime: {
         padding: 10,
-        marginBottom: 5,
+        marginBottom: 2,
         borderWidth: 2,
         borderColor: Colors.BLUE3,
         borderRadius: 21,
@@ -109,11 +119,19 @@ const styles = StyleSheet.create ({
     },
     unSelectedTime: {
         padding: 10,
-        marginBottom: 5,
+        marginBottom: 2,
         borderWidth: 2,
         borderColor: Colors.BLUE3,
         borderRadius: 21,
         paddingHorizontal: 18,
         color: Colors.BLUE3
+    },
+    noteText: {
+        marginLeft: 10,
+        marginRight: 10,
+        borderWidth: 1,
+        borderRadius: 15,
+        height: 120,
+        textAlignVertical: 'top'
     }
 })

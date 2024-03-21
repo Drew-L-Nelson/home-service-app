@@ -107,7 +107,7 @@ export default function TestBookingModal({hideModal}) {
                         onBlur={()=>setIsFocused(false)}
                         style={[
                             styles.noteText,
-                            isFocused ? { marginBottom: 20 } : {}
+                            isFocused ? { marginBottom: 1 } : {}
                         ]} 
                         numberOfLines={6}
                         multiline={true}
@@ -116,6 +116,9 @@ export default function TestBookingModal({hideModal}) {
                         onChange={(text)=>setNote(text)}
                     />
                 </View>
+                <TouchableOpacity style={styles.confirmButtonView}>
+                    <Text style={styles.confirmButton}>Confirm & Book</Text>
+                </TouchableOpacity>
             </ScrollView>
         </TouchableWithoutFeedback>                           
     </KeyboardAvoidingView>
@@ -170,5 +173,25 @@ const styles = StyleSheet.create ({
         fontSize: 16,
         fontFamily: 'outfit',
         borderColor: Colors.BLUE2,
+    },
+    confirmButton: {
+        margin: 10,
+        textAlign: 'center',
+        fontFamily: 'outfit-medium',
+        fontSize: 17,
+        backgroundColor: Colors.BLUE3,
+        color: Colors.WHITE,
+        padding: 10,
+        borderRadius: 16,
+        overflow: 'hidden'
+    },
+    confirmButtonView: {
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 1
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 2
     }
 })

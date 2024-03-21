@@ -10,7 +10,7 @@ import CalendarPicker from 'react-native-calendar-picker'
 import Colors from '../../Utils/Colors'
 import Heading from '../../Components/Heading'
 
-export default function BookingModal({hideModal}) {
+export default function BookingModal({businessID, hideModal}) {
 
     const [timeList, setTimeList] = useState();
     const [selectedTime, setSelectedTime] = useState();

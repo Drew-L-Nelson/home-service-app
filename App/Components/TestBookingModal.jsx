@@ -12,8 +12,10 @@ import ModalCloseButton from '../Components/Buttons/ModalCloseButton'
 import CalendarPicker from 'react-native-calendar-picker'
 import Colors from '../Utils/Colors'
 import Heading from '../Components/Heading'
+import GlobalApi from '../Utils/GlobalApi'
+import { useUser } from '@clerk/clerk-expo'
 
-export default function TestBookingModal({hideModal}) {
+export default function TestBookingModal({businessID, hideModal}) {
 
     const [timeList, setTimeList] = useState();
     const [selectedTime, setSelectedTime] = useState();
@@ -22,6 +24,7 @@ export default function TestBookingModal({hideModal}) {
     const [isFocused, setIsFocused] = useState(false);
 
     const scrollViewRef = useRef(null);
+    const { user } = useUser();
 
     const onDateChange = (date) => {
         setSelectedStartDate(date);
@@ -51,6 +54,22 @@ export default function TestBookingModal({hideModal}) {
     useEffect(() => {
         getTime();
     },[])
+
+    const createNewBooking = () => {
+        const data={
+            userName: user?.fullName,
+            userEmail: user?.primaryEmailAddress.emailAddress,
+            time: selectedTime,
+            date: selectedStartDate,
+            note: note,
+            businessID: businessID
+        }
+        GlobalApi.createBooking(data).then(resp=>{
+            console.log('Response ==> ', resp)
+        }).catch(error => {
+            console.error(error);
+        })
+    }
 
   return (
     <KeyboardAvoidingView
@@ -116,9 +135,14 @@ export default function TestBookingModal({hideModal}) {
                         onChange={(text)=>setNote(text)}
                     />
                 </View>
-                <TouchableOpacity style={styles.confirmButtonView}>
+                {/* Confirmation Button */}
+                <TouchableOpacity 
+                    style={styles.confirmButtonView}
+                    onPress={()=>createNewBooking()}
+                >
                     <Text style={styles.confirmButton}>Confirm & Book</Text>
                 </TouchableOpacity>
+
             </ScrollView>
         </TouchableWithoutFeedback>                           
     </KeyboardAvoidingView>

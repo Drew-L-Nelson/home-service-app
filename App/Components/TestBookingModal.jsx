@@ -1,11 +1,14 @@
+// 🌟💥🚀🌟💥🚀 TEST MODAL FOR SCROLL AND KEYBOARD HIDING FUNCTIONALITY
+
+
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import ModalCloseButton from '../../Components/Buttons/ModalCloseButton'
+import ModalCloseButton from '../Components/Buttons/ModalCloseButton'
 import CalendarPicker from 'react-native-calendar-picker'
-import Colors from '../../Utils/Colors'
-import Heading from '../../Components/Heading'
+import Colors from '../Utils/Colors'
+import Heading from '../Components/Heading'
 
-export default function BookingModal({hideModal}) {
+export default function TestBookingModal({hideModal}) {
 
     const [timeList, setTimeList] = useState();
     const [selectedTime, setSelectedTime] = useState();

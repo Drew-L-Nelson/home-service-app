@@ -4,7 +4,7 @@ import Colors from '../../Utils/Colors'
 import BookingModal from '../../Screens/BusinessDetailsScreen/BookingModal';
 import TestBookingModal from '../TestBookingModal';
 
-export default function BusinessDetailsButtons() {
+export default function BusinessDetailsButtons(business) {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -39,8 +39,13 @@ export default function BusinessDetailsButtons() {
         animationType='slide'
         visible={showModal}
         >
-            {/* <BookingModal hideModal={()=>setShowModal(false)}/> */}
-            <TestBookingModal hideModal={()=>setShowModal(false)} />
+            {/* <BookingModal 
+                hideModal={()=>setShowModal(false)}
+            /> */}
+            <TestBookingModal 
+                businessID={business.id}
+                hideModal={()=>setShowModal(false)} 
+            />
         </Modal>
     </View>
   )

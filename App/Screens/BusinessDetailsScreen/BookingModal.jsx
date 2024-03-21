@@ -1,5 +1,10 @@
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Text, StyleSheet, 
+    FlatList, TouchableOpacity, 
+    TextInput, KeyboardAvoidingView, 
+    ScrollView, Platform, Keyboard,
+    TouchableWithoutFeedback
+    } from 'react-native'
+import React, { useEffect, useState, useRef } from 'react'
 import ModalCloseButton from '../../Components/Buttons/ModalCloseButton'
 import CalendarPicker from 'react-native-calendar-picker'
 import Colors from '../../Utils/Colors'
@@ -10,6 +15,10 @@ export default function BookingModal({hideModal}) {
     const [timeList, setTimeList] = useState();
     const [selectedTime, setSelectedTime] = useState();
     const [selectedStartDate, setSelectedStartDate] = useState(null);
+    const [note, setNote] = useState();
+    const [isFocused, setIsFocused] = useState(false);
+
+    const scrollViewRef = useRef(null);
 
     const onDateChange = (date) => {
         setSelectedStartDate(date);
@@ -41,53 +50,72 @@ export default function BookingModal({hideModal}) {
     },[])
 
   return (
-    <View>
-        <View style={styles.container}>
-            <ModalCloseButton title={'Booking'} hideModal={hideModal}/>
-        </View>
-        <Heading text={'Select Date'} />
-        <View style={styles.calendarContainer}>
-            <CalendarPicker 
-                onDateChange={onDateChange} 
-                minDate={Date.now()}
-                todayBackgroundColor={Colors.BLUE2}
-                todayTextStyle={{color:Colors.WHITE}}
-                selectedDayColor={Colors.BLUE2}
-                selectedDayTextColor={Colors.WHITE}
-            />
-        </View>
-        {/* Time Select Section */}
-        <Heading text={'Select Time Slot'}/>
-        <View style={styles.timeContainer}>
-            <FlatList 
-                data={timeList}
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                renderItem={({item, index})=>(
-                    <TouchableOpacity style={{marginRight: 10}}
-                        onPress={()=>setSelectedTime(item.time)}
-                    >
-                        <Text style={[selectedTime === item.time ? styles.selectedTime : 
-                        styles.unSelectedTime]}
-                        
-                        >{item.time}</Text>
-                    </TouchableOpacity>
-                )}
-            />
-        </View>
-        {/* Note Section */}
-        <View>
-            <Heading text={'Any Suggestion Note'}/>
-            <TextInput 
-                placeholder='Note' 
-                style={styles.noteText} 
-                numberOfLines={6}
-                multiline={true}
-                cursorColor={'blue'}
-                placeholderTextColor={Colors.GREY}
-            />
-        </View>
-    </View>
+    <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={{ flex: 1 }}
+    >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} >
+            <ScrollView 
+                contentContainerStyle={{ flexGrow: 1 }}
+                ref={scrollViewRef}
+            >
+                <View style={styles.container}>
+                    <ModalCloseButton title={'Booking'} hideModal={hideModal}/>
+                </View>
+                <Heading text={'Select Date'} />
+                <View style={styles.calendarContainer}>
+                    <CalendarPicker 
+                        onDateChange={onDateChange} 
+                        minDate={Date.now()}
+                        todayBackgroundColor={Colors.BLUE2}
+                        todayTextStyle={{color:Colors.WHITE}}
+                        selectedDayColor={Colors.BLUE2}
+                        selectedDayTextColor={Colors.WHITE}
+                    />
+                </View>
+                {/* Time Select Section */}
+                <Heading text={'Select Time Slot'}/>
+                <View style={styles.timeContainer}>
+                    <FlatList 
+                        data={timeList}
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        renderItem={({item, index})=>(
+                            <TouchableOpacity style={{marginRight: 10}}
+                                onPress={()=>setSelectedTime(item.time)}
+                            >
+                                <Text style={[selectedTime === item.time ? styles.selectedTime : 
+                                styles.unSelectedTime]}
+                                
+                                >{item.time}</Text>
+                            </TouchableOpacity>
+                        )}
+                    />
+                </View>
+                {/* Note Section */}
+                <View>
+                    <Heading text={'Any Suggestion Note'}/>
+                    <TextInput 
+                        placeholder='Note' 
+                        onFocus={()=> {
+                            setIsFocused(true);
+                            setTimeout(() => scrollViewRef.current.scrollToEnd({ animated: true }), 100);
+                        }}
+                        onBlur={()=>setIsFocused(false)}
+                        style={[
+                            styles.noteText,
+                            isFocused ? { marginBottom: 20 } : {}
+                        ]} 
+                        numberOfLines={6}
+                        multiline={true}
+                        cursorColor={'blue'}
+                        placeholderTextColor={Colors.GREY}
+                        onChange={(text)=>setNote(text)}
+                    />
+                </View>
+            </ScrollView>
+        </TouchableWithoutFeedback>                           
+    </KeyboardAvoidingView>
   )
 }
 
@@ -135,5 +163,9 @@ const styles = StyleSheet.create ({
         borderRadius: 15,
         height: 120,
         textAlignVertical: 'top',
+        padding: 10,
+        fontSize: 16,
+        fontFamily: 'outfit',
+        borderColor: Colors.BLUE2,
     }
 })

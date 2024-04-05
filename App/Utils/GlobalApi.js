@@ -112,8 +112,7 @@ const createBooking = async(data) => {
     ) {
       id
     }
-    publishBooking(where: {id: ""}) {
-      id
+    publishManyBookings
     }
   }
   `

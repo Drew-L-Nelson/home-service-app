@@ -6,6 +6,9 @@ import Categories from './Categories'
 import Stories from './Stories'
 import BusinessList from './BusinessList'
 
+// TESTING OUT LOGIN2
+import Login2 from '../LoginScreen/Login2'
+
 export default function HomeScreen() {
   return (
     <View style={{ flex: 1 }}>
@@ -16,6 +19,7 @@ export default function HomeScreen() {
         <View>
           <Stories />
           <Slider />
+          
           <BusinessList />
           <Categories />
         </View>

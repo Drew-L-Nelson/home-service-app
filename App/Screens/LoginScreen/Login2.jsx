@@ -27,15 +27,31 @@ export default function Login2() {
         }
     }
 
-    const onGoogleSignIn = (e) => {
-        e.preventDefault()
+    // const onGoogleSignIn = (e) => {
+    //     e.preventDefault()
+    //     if (!isSigningIn) {
+    //         setIsSigningIn(true)
+    //         doSignInWithGoogle().catch(err => {
+    //             setIsSigningIn(false)
+    //         })
+    //     }
+    // }
+
+    const onGoogleSignIn = async () => {
         if (!isSigningIn) {
-            setIsSigningIn(true)
-            doSignInWithGoogle().catch(err => {
-                setIsSigningIn(false)
-            })
+          setIsSigningIn(true);
+          try {
+            const userCredential = await doSignInWithGoogle();
+            console.log(userCredential);
+            // Handle successful sign in
+          } catch (error) {
+            console.error(error);
+            setErrorMessage(error.message);
+          } finally {
+            setIsSigningIn(false);
+          }
         }
-    }
+      };
 
     // Redirect if logged in
     if (userLoggedIn) {
@@ -81,7 +97,7 @@ export default function Login2() {
                         <Text style={styles.buttonText}>Sign In</Text>
                     )}
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+                <TouchableOpacity onPress={() => navigation.navigate('register-screen')}>
                     <Text style={styles.link}>Don't have an account? Sign up</Text>
                 </TouchableOpacity>
                 <View style={styles.dividerContainer}>

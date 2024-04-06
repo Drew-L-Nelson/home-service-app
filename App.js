@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './App/Screens/LoginScreen/Login';
+import Login2 from './App/Screens/LoginScreen/Login2';
 import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-expo';
 import { NavigationContainer } from '@react-navigation/native';
 import * as SecureStore from 'expo-secure-store';
@@ -8,6 +9,7 @@ import { useFonts } from 'expo-font';
 import TabNavigation from './App/Navigations/TabNavigation';
 import { useEffect, useState } from 'react';
 import { auth } from './App/Utils/firebase-config';
+import { AuthProvider } from './App/Utils/authContext';
 
 // const tokenCache = {
 //   async getToken(key) {
@@ -45,16 +47,12 @@ export default function App() {
   }, []);
 
   return (
-    // <View>
-    //   { user ? (
-    //       <NavigationContainer>
-    //         <TabNavigation />
-    //       </NavigationContainer>
-    //     ) : (
-    //       <Login />
-    //     )}
-    //     <StatusBar style='auto'/>
-    // </View>
+    <AuthProvider>
+      <NavigationContainer>
+        {user ? <TabNavigation /> : <Login2 />}
+      </NavigationContainer>
+      <StatusBar style="auto" />
+    </AuthProvider>
 
 
 
@@ -77,13 +75,13 @@ export default function App() {
     //   </View>
     // </ClerkProvider>
 
-    <ClerkProvider
-  publishableKey='pk_test_aHVtYmxlLW9zdHJpY2gtNDguY2xlcmsuYWNjb3VudHMuZGV2JA'
->
-    <NavigationContainer>
-      <TabNavigation />
-    </NavigationContainer>
-</ClerkProvider>
+//     <ClerkProvider
+//   publishableKey='pk_test_aHVtYmxlLW9zdHJpY2gtNDguY2xlcmsuYWNjb3VudHMuZGV2JA'
+// >
+//     <NavigationContainer>
+//       <TabNavigation />
+//     </NavigationContainer>
+// </ClerkProvider>
 
   );
 }

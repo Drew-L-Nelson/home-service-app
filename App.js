@@ -45,7 +45,16 @@ export default function App() {
   }, []);
 
   return (
-    
+    // <View>
+    //   { user ? (
+    //       <NavigationContainer>
+    //         <TabNavigation />
+    //       </NavigationContainer>
+    //     ) : (
+    //       <Login />
+    //     )}
+    //     <StatusBar style='auto'/>
+    // </View>
 
 
 
@@ -68,13 +77,14 @@ export default function App() {
     //   </View>
     // </ClerkProvider>
 
-<ClerkProvider
+    <ClerkProvider
   publishableKey='pk_test_aHVtYmxlLW9zdHJpY2gtNDguY2xlcmsuYWNjb3VudHMuZGV2JA'
 >
     <NavigationContainer>
       <TabNavigation />
     </NavigationContainer>
 </ClerkProvider>
+
   );
 }
 

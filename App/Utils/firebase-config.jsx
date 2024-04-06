@@ -88,4 +88,6 @@ export { app, auth,
   getStarsCount, 
   incrementUpvotes, 
   decrementDownvotes, 
-  incrementStars };
+  incrementStars,
+  firebaseConfig
+};

@@ -20,12 +20,6 @@ const upvoteRef = collection(db, 'Upvotes')
 const downvoteRef = collection(db, 'Downvotes')
 const starsRef = collection(db, 'Stars')
 
-const getUpvoteCount = async () => {
-  const upvoteDocSnap = await getDocs(upvoteRef);
-  console.log("Upvote collection data:", upvoteDocSnap.docs[0].data().f1);
-  return upvoteDocSnap;
-};
-
 const getDownvoteCount = async () => {
   const downvoteDocSnap = await getDocs(downvoteRef);
   console.log("Downvote collection data:", downvoteDocSnap.docs[0].data().f1);
@@ -37,22 +31,6 @@ const getStarsCount = async () => {
   console.log("Stars collection data:", starsDocSnap.docs[0].data().f1);
   return starsDocSnap;
 };
-
-const incrementUpvotes = async () => {
-  const docSnap = await getDocs(upvoteRef);
-  if (docSnap.docs.length > 0) {
-      const firstDocRef = docSnap.docs[0].ref;
-      try {
-          await updateDoc(firstDocRef, {
-              f1: increment(1),
-          })
-      } catch (error) {
-          console.log('Error updating document: ', error);
-      }
-  } else {
-      console.log('No documents found in Upvotes collection')
-  }
-}
 
 const decrementDownvotes = async () => {
   const docSnap = await getDocs(downvoteRef);
@@ -82,12 +60,9 @@ const incrementStars = async () => {
   }
 }
 
-export { app, auth, 
-  getUpvoteCount, 
+export { app, auth, db, 
   getDownvoteCount, 
   getStarsCount, 
-  incrementUpvotes, 
   decrementDownvotes, 
   incrementStars,
-  firebaseConfig
 };

@@ -7,7 +7,6 @@ import * as SecureStore from 'expo-secure-store';
 import { useFonts } from 'expo-font';
 import TabNavigation from './App/Navigations/TabNavigation';
 import { useEffect, useState } from 'react';
-import { auth } from './App/Utils/firebase-config';
 
 // const tokenCache = {
 //   async getToken(key) {
@@ -36,29 +35,7 @@ export default function App() {
 
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
   return (
-    // <View>
-    //   { user ? (
-    //       <NavigationContainer>
-    //         <TabNavigation />
-    //       </NavigationContainer>
-    //     ) : (
-    //       <Login />
-    //     )}
-    //     <StatusBar style='auto'/>
-    // </View>
-
-
-
-
     // <ClerkProvider 
     //   // tokenCache={tokenCache}
     //   publishableKey='pk_test_aHVtYmxlLW9zdHJpY2gtNDguY2xlcmsuYWNjb3VudHMuZGV2JA'

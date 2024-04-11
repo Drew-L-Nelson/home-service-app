@@ -2,11 +2,28 @@ import { View, Text, StyleSheet, FlatList, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import GlobalApi from '../../Utils/GlobalApi';
 import Heading from '../../Components/Heading';
-import { getFirebaseStories } from '../../Utils/FirebaseModules/APIs/getStories';
+import { collection, getDocs } from 'firebase/firestore';
+import { ref, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '../../Utils/firebase-config';
+// import { getFirebaseStories } from '../../Utils/FirebaseModules/APIs/getStories';
+
+const storiesRef = collection(db, 'Stories');
+
 
 export default function Stories() {
 
     const [stories, setStories] = useState([]);
+    const [stories2, setStories2] = useState([]);
+
+    const getFirebaseStories = async () => {
+        const storiesSnapshot = await getDocs(storiesRef);
+        storiesSnapshot.forEach((doc) => {
+            // console.log('doc.id: ', doc.id, ' => ', doc.data());
+            setStories2(stories2 => [
+                ...stories2, doc.data()
+            ])
+        })
+    };
 
     const getStories = () => {
         GlobalApi.getStories().then(resp => {
@@ -18,14 +35,9 @@ export default function Stories() {
         getStories();
     }, [])
 
-    const getStories2 = () => {
-        getFirebaseStories().then(resp => {
-            console.log('resp -->', resp)
-        })
-    }
-
     useEffect(() => {
-        getStories2();
+        getFirebaseStories();
+        console.log('stories2 => ', stories2)
     }, [])
 
     return (

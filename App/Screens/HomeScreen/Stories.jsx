@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet, FlatList, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import GlobalApi from '../../Utils/GlobalApi';
-import Heading from '../../Components/Heading'
+import Heading from '../../Components/Heading';
+import { getFirebaseStories } from '../../Utils/FirebaseModules/APIs/getStories';
 
 export default function Stories() {
 
@@ -15,6 +16,16 @@ export default function Stories() {
 
     useEffect(() => {
         getStories();
+    }, [])
+
+    const getStories2 = () => {
+        getFirebaseStories().then(resp => {
+            console.log('resp -->', resp)
+        })
+    }
+
+    useEffect(() => {
+        getStories2();
     }, [])
 
     return (

@@ -36,31 +36,31 @@ export default function App() {
   const [user, setUser] = useState(null);
 
   return (
-    // <ClerkProvider 
-    //   // tokenCache={tokenCache}
-    //   publishableKey='pk_test_aHVtYmxlLW9zdHJpY2gtNDguY2xlcmsuYWNjb3VudHMuZGV2JA'
-    //   >
-    //   <View style={styles.container}>
-    //     <SignedIn>
-    //       <NavigationContainer>
-    //         <TabNavigation />
-    //       </NavigationContainer>
-    //     </SignedIn>
+    <ClerkProvider 
+      // tokenCache={tokenCache}
+      publishableKey='pk_test_aHVtYmxlLW9zdHJpY2gtNDguY2xlcmsuYWNjb3VudHMuZGV2JA'
+      >
+      <View style={styles.container}>
+        <SignedIn>
+          <NavigationContainer>
+            <TabNavigation />
+          </NavigationContainer>
+        </SignedIn>
         
-    //     <SignedOut>
-    //       <Login />
-    //     </SignedOut>
-    //     <StatusBar style="auto" />
-    //   </View>
-    // </ClerkProvider>
+        <SignedOut>
+          <Login />
+        </SignedOut>
+        <StatusBar style="auto" />
+      </View>
+    </ClerkProvider>
 
-    <ClerkProvider
-  publishableKey='pk_test_aHVtYmxlLW9zdHJpY2gtNDguY2xlcmsuYWNjb3VudHMuZGV2JA'
->
-    <NavigationContainer>
-      <TabNavigation />
-    </NavigationContainer>
-</ClerkProvider>
+//     <ClerkProvider
+//   publishableKey='pk_test_aHVtYmxlLW9zdHJpY2gtNDguY2xlcmsuYWNjb3VudHMuZGV2JA'
+// >
+//     <NavigationContainer>
+//       <TabNavigation />
+//     </NavigationContainer>
+// </ClerkProvider>
 
   );
 }

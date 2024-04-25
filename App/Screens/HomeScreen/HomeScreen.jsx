@@ -14,7 +14,7 @@ export default function HomeScreen() {
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}>
         <View>
-          <Stories />
+          {/* <Stories /> */}
           <Slider />
           <BusinessList />
           <Categories />

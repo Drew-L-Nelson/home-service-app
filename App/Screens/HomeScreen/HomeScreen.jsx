@@ -5,6 +5,8 @@ import Slider from './Slider'
 import Categories from './Categories'
 import Stories from './Stories'
 import BusinessList from './BusinessList'
+import NotificationButton from '../../Components/Buttons/NotificationButton'
+import YouTubeVideo from '../../Components/YoutubeVideo'
 
 export default function HomeScreen() {
   return (
@@ -14,10 +16,12 @@ export default function HomeScreen() {
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}>
         <View>
-          {/* <Stories /> */}
-          <Slider />
+          <NotificationButton />
+          <YouTubeVideo videoId='NnMLpZqj4JI' />
+          <Stories />
+          {/* <Slider /> */}
           <BusinessList />
-          <Categories />
+          {/* <Categories /> */}
         </View>
       </ScrollView>
     </View>

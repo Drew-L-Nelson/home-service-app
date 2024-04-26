@@ -22,13 +22,13 @@ export default function Header() {
                 <Ionicons name="bookmark-outline" size={27} color="white" />
             </View>
             {/* Search Bar Section */}
-            <View style={styles.searchBarContainer}>
+            {/* <View style={styles.searchBarContainer}>
                 <TextInput placeholder='Search'
                 style={styles.textInput}/>
                 <View style={styles.searchBtn}>
                     <Ionicons name="search" size={24} color={Colors.ORANGE2} />
                 </View>
-            </View>
+            </View> */}
         </View>
     )
 }

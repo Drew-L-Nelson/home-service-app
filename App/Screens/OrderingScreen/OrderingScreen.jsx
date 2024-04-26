@@ -6,7 +6,7 @@ export default function OrderingScreen() {
   return (
     <View style={styles.subContainer}>
             <Text style={{fontSize: 27, color: Colors.WHITE, textAlign: 'center'}}>
-                <Text style={{fontWeight: 'bold'}}>Order Burgers Here</Text>
+                <Text style={{fontWeight: 'bold'}}>Menu</Text>
             </Text>
     </View>
   )

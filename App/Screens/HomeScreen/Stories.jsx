@@ -42,7 +42,7 @@ export default function Stories() {
 
     return (
         <View>
-            <Heading text={'Business News'} isViewAll={true}/>
+            <Heading text={"Upcoming Events"} isViewAll={true}/>
             <View style={styles.flatListContainer}>
                 <FlatList 
                 data={stories}

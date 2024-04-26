@@ -18,6 +18,7 @@ export default function HomeScreen() {
         <View>
           <NotificationButton />
           <YouTubeVideo videoId='NnMLpZqj4JI' />
+          <YouTubeVideo videoId='f7Bt86GXZDI' />
           <Stories />
           {/* <Slider /> */}
           <BusinessList />

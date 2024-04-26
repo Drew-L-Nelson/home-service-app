@@ -1,10 +1,11 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import Heading from '../../Components/Heading'
 
 export default function BookingScreen() {
   return (
     <View>
-      <Text>BookingScreen</Text>
+      <Heading text={"Book us for an event!"} isViewAll={false}/>
     </View>
   )
 }
